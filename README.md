@@ -22,17 +22,20 @@ Run the program to determine the number of words in the file created.
 Developed by:sirisha onteddu
 RegisterNumber: 22003264
 import sys
-count = 0
-with open (sys.argv[1],'r') as f1:
-    for line in f1:
-        word = line.split()
-        count += len (word)
-print("word count in file = ",count)
+count = {}
+with open(sys.argv[1], 'r') as f:
+    for line in f:
+        for word in line.split():
+            if word not in count:
+                count[word] = 1
+            else:
+                count[word] += 1
+print(count)
+f.close()
 ```
 ### OUTPUT:
 
-![image](https://user-images.githubusercontent.com/119389139/214849775-93a93898-41d3-4c8e-a4aa-bd4c346c311a.png)
-
+![image](https://user-images.githubusercontent.com/119389139/215236973-dc4b9a23-3813-4499-8da4-614f281407e5.png)
 
 ## RESULT:
 Thus the program is written to find the word count from the contents of a file using command line arguments.
